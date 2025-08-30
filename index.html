@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -163,8 +124,8 @@
 <body>
     <div class="container">
         <div class="side-images-left">
-            <img src="https://via.placeholder.com/120?text=Hitler+Caricatura" alt="Caricatura histórica">
-            <img src="https://via.placeholder.com/120?text=Extra+1" alt="Imagem extra 1">
+            <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/318F11DB-02AC-4BBD-964E-2081B0121A23.png" alt="Imagem extra 1">
+            <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/download%20(3).jpeg" alt="Imagem extra 2">
         </div>
         <div class="text-content">
             <h1>Uma Mensagem Especial</h1>
@@ -175,19 +136,21 @@
             <p>E mais: não pense que isso é apenas um detalhe vulgar perdido no meio de tanto texto. Não. Isso é uma declaração de impacto, é o ápice, o clímax narrativo que transforma todo esse caminho tortuoso em algo memorável. E como se isso já não fosse suficientemente importante, deixo aqui, entre risadas e solenidade, o motivo principal de tudo isso:</p>
             <p class="birthday">🎉 FELIZ ANIVERSÁRIO, MERCURIO! 🎉</p>
             <div class="image-gallery">
-                <img src="https://via.placeholder.com/120?text=Kleber+Bambam" alt="Kleberiano meme">
-                <img src="https://via.placeholder.com/120?text=Humor+Negro" alt="Meme de humor negro">
-                <img src="https://via.placeholder.com/120?text=Extra+2" alt="Imagem extra 2">
-                <img src="https://via.placeholder.com/120?text=Extra+3" alt="Imagem extra 3">
+                <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/QUE%20ISSO%20KLEBERIANO_.jpeg" alt="Kleberiano meme">
+                <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/download%20(4).jpeg" alt="Imagem extra 3">
+                <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/el%20santi.jpeg" alt="Imagem extra 4">
+                <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/image.png" alt="Imagem extra 5">
+                <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/aaaaaaaaaaaaaaaaaaaaaaaaaa.png" alt="Imagem extra 6">
+                <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/E281E466-C3BD-4177-BF16-DB9E97C56300.png" alt="Imagem extra 7">
             </div>
             <audio controls autoplay loop>
-                <source src="https://www.zedge.net/ringtone/8e8b7b7b-2b7b-4b7b-8b7b-7b2b4b7b8e8b" type="audio/mp3">
+                <source src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/Parab%C3%A9ns%20Pra%20Voc%C3%AA%20-%20Xuxa.mp3" type="audio/mp3">
                 Seu navegador não suporta o elemento de áudio.
             </audio>
         </div>
         <div class="side-images-right">
-            <img src="https://via.placeholder.com/120?text=Humor+Negro+2" alt="Outro meme de humor negro">
-            <img src="https://via.placeholder.com/120?text=Extra+4" alt="Imagem extra 4">
+            <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/1C7D2E77-7C6D-4A2F-8272-3AC14806F36A.png" alt="Caricatura histórica">
+            <img src="https://raw.githubusercontent.com/s2Seraphin/Mercurio-birthday-site/main/C27021DE-878F-4E82-ACD1-525E63C627DB.png" alt="Meme de humor negro">
         </div>
     </div>
     <script>
